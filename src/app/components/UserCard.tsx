@@ -1,4 +1,6 @@
 import Image from "next/image"
+import Chat from "./Chat"; // Import the Chat component
+
 
 type User = {
     name?: string | null | undefined;
@@ -21,11 +23,11 @@ export default function Card({ user, pagetype }: Props) {
         </div>
     ) : null
 
-    // const emailDisplay = user?.email ? (
-    //     <div className="flex flex-col items-center p-6 bg-white rounded-lg font-bold text-5xl text-black">
-    //         {user?.email}
-    //     </div>
-    // ) : null
+    const emailDisplay = user?.email ? (
+        <div className="flex flex-col items-center p-6 bg-white rounded-lg font-bold text-5xl text-black">
+            {user?.email}
+        </div>
+    ) : null
 
     const userImage = user?.image ? (
         <Image
@@ -44,6 +46,8 @@ export default function Card({ user, pagetype }: Props) {
             {/* {emailDisplay} */}
             {userImage}
             <p className="text-2xl text-center">{pagetype} Page!</p>
+            {/* <p>Hello World</p> */}
+            <Chat />
         </section>
     )
 }
